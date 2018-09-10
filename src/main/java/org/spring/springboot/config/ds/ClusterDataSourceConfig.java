@@ -42,6 +42,8 @@ public class ClusterDataSourceConfig {
         dataSource.setUrl(url);
         dataSource.setUsername(user);
         dataSource.setPassword(password);
+//        dataSource.setInitialSize(initialSize);
+//        dataSource.setMaxActive(arg0);
         return dataSource;
     }
 

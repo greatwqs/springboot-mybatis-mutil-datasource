@@ -12,11 +12,11 @@ import org.spring.springboot.domain.User;
 @Mapper
 public interface UserDao {
 
-    /**
-     * 根据用户名获取用户信息
-     *
-     * @param userName
-     * @return
-     */
-    User findByName(@Param("userName") String userName);
+	/**
+	 * 根据用户名获取用户信息
+	 *
+	 * @param userName
+	 * @return
+	 */
+	User findByName(@Param("userName") String userName);
 }
