@@ -12,8 +12,8 @@ public interface UserService {
 	/**
 	 * 根据用户名获取用户信息，包括从库的地址信息
 	 *
-	 * @param userName
-	 * @return
+	 * @param userName 用户名
+	 * @return 用户
 	 */
 	User findByName(String userName);
 }

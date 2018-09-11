@@ -60,11 +60,11 @@ public class MasterDataSourceConfig {
 	@Bean(name = "masterSqlSessionFactory")
 	@Primary
 	public SqlSessionFactory masterSqlSessionFactory(@Qualifier("masterDataSource") DataSource masterDataSource)
-			throws Exception {
+		throws Exception {
 		final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
 		sessionFactory.setDataSource(masterDataSource);
 		sessionFactory.setMapperLocations(
-				new PathMatchingResourcePatternResolver().getResources(MasterDataSourceConfig.MAPPER_LOCATION));
+			new PathMatchingResourcePatternResolver().getResources(MasterDataSourceConfig.MAPPER_LOCATION));
 		return sessionFactory.getObject();
 	}
 }

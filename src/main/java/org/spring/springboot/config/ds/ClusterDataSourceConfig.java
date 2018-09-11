@@ -19,49 +19,49 @@ import com.alibaba.druid.pool.DruidDataSource;
 @MapperScan(basePackages = "org.spring.springboot.dao.cluster", sqlSessionFactoryRef = "clusterSqlSessionFactory")
 public class ClusterDataSourceConfig {
 
-    // 精确到 cluster 目录，以便跟其他数据源隔离
-    private static final String PACKAGE = "org.spring.springboot.dao.cluster";
+	// 精确到 cluster 目录，以便跟其他数据源隔离
+	private static final String PACKAGE = "org.spring.springboot.dao.cluster";
 	private static final String MAPPER_LOCATION = "classpath:mapper/cluster/*.xml";
 
 	@Value("${cluster.datasource.url}")
-    private String url;
+	private String url;
 
-    @Value("${cluster.datasource.username}")
-    private String user;
+	@Value("${cluster.datasource.username}")
+	private String user;
 
-    @Value("${cluster.datasource.password}")
-    private String password;
+	@Value("${cluster.datasource.password}")
+	private String password;
 
-    @Value("${cluster.datasource.driverClassName}")
-    private String driverClass;
+	@Value("${cluster.datasource.driverClassName}")
+	private String driverClass;
 
-    @Bean(name = "clusterDataSource")
-    public DataSource clusterDataSource() {
-        DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setDriverClassName(driverClass);
-        dataSource.setUrl(url);
-        dataSource.setUsername(user);
-        dataSource.setPassword(password);
-        // add for init param
-        dataSource.setInitialSize(1);
-        dataSource.setMaxActive(2);
-        dataSource.setTestWhileIdle(true);
-        dataSource.setValidationQuery("select 1");
-        return dataSource;
-    }
+	@Bean(name = "clusterDataSource")
+	public DataSource clusterDataSource() {
+		DruidDataSource dataSource = new DruidDataSource();
+		dataSource.setDriverClassName(driverClass);
+		dataSource.setUrl(url);
+		dataSource.setUsername(user);
+		dataSource.setPassword(password);
+		// add for init param
+		dataSource.setInitialSize(1);
+		dataSource.setMaxActive(2);
+		dataSource.setTestWhileIdle(true);
+		dataSource.setValidationQuery("select 1");
+		return dataSource;
+	}
 
-    @Bean(name = "clusterTransactionManager")
-    public DataSourceTransactionManager clusterTransactionManager() {
-        return new DataSourceTransactionManager(clusterDataSource());
-    }
+	@Bean(name = "clusterTransactionManager")
+	public DataSourceTransactionManager clusterTransactionManager() {
+		return new DataSourceTransactionManager(clusterDataSource());
+	}
 
-    @Bean(name = "clusterSqlSessionFactory")
-    public SqlSessionFactory clusterSqlSessionFactory(@Qualifier("clusterDataSource") DataSource clusterDataSource)
-            throws Exception {
-        final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-        sessionFactory.setDataSource(clusterDataSource);
-        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources(ClusterDataSourceConfig.MAPPER_LOCATION));
-        return sessionFactory.getObject();
-    }
+	@Bean(name = "clusterSqlSessionFactory")
+	public SqlSessionFactory clusterSqlSessionFactory(@Qualifier("clusterDataSource") DataSource clusterDataSource)
+		throws Exception {
+		final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
+		sessionFactory.setDataSource(clusterDataSource);
+		sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
+			.getResources(ClusterDataSourceConfig.MAPPER_LOCATION));
+		return sessionFactory.getObject();
+	}
 }

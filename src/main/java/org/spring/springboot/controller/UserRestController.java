@@ -28,9 +28,9 @@ public class UserRestController {
 	 */
 	@RequestMapping(value = "/api/user", method = RequestMethod.GET)
 	public User findByName(Model mode,
-			@RequestParam(value = "userName", required = true) String userName) {
-//		mode.
-//		mode.getClass().isAnnotationPresent(Autowired.class);
+		@RequestParam(value = "userName", required = true) String userName) {
+		//		mode.
+		//		mode.getClass().isAnnotationPresent(Autowired.class);
 		return userService.findByName(userName);
 	}
 

@@ -7,7 +7,6 @@ package org.spring.springboot.domain;
  */
 public class City {
 
-
 	/**
 	 * 城市编号
 	 */
@@ -29,20 +28,25 @@ public class City {
 	private String description;
 
 	@Override
-	public boolean equals(Object o) {
-		if (this == o)
+	public boolean equals(Object obj) {
+		if (this == obj) {
 			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
+		}
 
-		City city = (City)o;
+		if (obj == null || getClass() != obj.getClass()) {
+			return false;
+		}
 
-		if (id != null ? !id.equals(city.id) : city.id != null)
+		City city = (City)obj;
+		if (id != null ? !id.equals(city.id) : city.id != null) {
 			return false;
-		if (provinceId != null ? !provinceId.equals(city.provinceId) : city.provinceId != null)
+		}
+		if (provinceId != null ? !provinceId.equals(city.provinceId) : city.provinceId != null) {
 			return false;
-		if (cityName != null ? !cityName.equals(city.cityName) : city.cityName != null)
+		}
+		if (cityName != null ? !cityName.equals(city.cityName) : city.cityName != null) {
 			return false;
+		}
 		return description != null ? description.equals(city.description) : city.description == null;
 	}
 
