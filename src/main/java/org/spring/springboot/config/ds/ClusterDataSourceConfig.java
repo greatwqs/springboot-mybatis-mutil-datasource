@@ -22,8 +22,6 @@ public class ClusterDataSourceConfig {
     // 精确到 cluster 目录，以便跟其他数据源隔离
     private static final String PACKAGE = "org.spring.springboot.dao.cluster";
 	private static final String MAPPER_LOCATION = "classpath:mapper/cluster/*.xml";
-    private static final String PACKAGE = "";l
-    private static final String PACKAGE = "";
 
     @Value("${cluster.datasource.url}")
     private String url;
