@@ -8,6 +8,4 @@ springboot + mybatis + mutil-datasource + mysql
 
 mvn eclipse:eclipse #初始化工程
 mvn dependency:sources #下载依赖Jar包源码
-mvn clean install -P develop #本地打开发环境war包
-mvn clean install -P production #本地打线上环境war包
 EMail联系方式: greatwqs#163.com
