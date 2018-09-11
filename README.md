@@ -2,7 +2,7 @@
 springboot + mybatis + mutil-datasource + mysql
 基于springboot + mybatis + mutil-datasource + mysql
 
-开发环境: Apache Maven 3.3.3 + JDK 8 + MySQL 8 + Tomcat 8
+开发环境: Apache Maven 3.3.3 + JDK 8 + MySQL 8
 
 内含数据库脚本.
 
