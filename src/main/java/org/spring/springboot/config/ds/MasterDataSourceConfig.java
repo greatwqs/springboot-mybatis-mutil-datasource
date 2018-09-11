@@ -17,11 +17,10 @@ import com.alibaba.druid.pool.DruidDataSource;
 
 @Configuration
 // 扫描 Mapper 接口并容器管理
-@MapperScan(basePackages = MasterDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "masterSqlSessionFactory")
+@MapperScan(basePackages = "org.spring.springboot.dao.master", sqlSessionFactoryRef = "masterSqlSessionFactory")
 public class MasterDataSourceConfig {
 
 	// 精确到 master 目录，以便跟其他数据源隔离
-	private static final String PACKAGE = "org.spring.springboot.dao.master";
 	private static final String MAPPER_LOCATION = "classpath:mapper/master/*.xml";
 
 	@Value("${master.datasource.url}")

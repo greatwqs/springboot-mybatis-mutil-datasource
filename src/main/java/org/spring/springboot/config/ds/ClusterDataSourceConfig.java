@@ -16,14 +16,14 @@ import com.alibaba.druid.pool.DruidDataSource;
 
 @Configuration
 // 扫描 Mapper 接口并容器管理
-@MapperScan(basePackages = ClusterDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "clusterSqlSessionFactory")
+@MapperScan(basePackages = "org.spring.springboot.dao.cluster", sqlSessionFactoryRef = "clusterSqlSessionFactory")
 public class ClusterDataSourceConfig {
 
     // 精确到 cluster 目录，以便跟其他数据源隔离
     private static final String PACKAGE = "org.spring.springboot.dao.cluster";
 	private static final String MAPPER_LOCATION = "classpath:mapper/cluster/*.xml";
 
-    @Value("${cluster.datasource.url}")
+	@Value("${cluster.datasource.url}")
     private String url;
 
     @Value("${cluster.datasource.username}")
