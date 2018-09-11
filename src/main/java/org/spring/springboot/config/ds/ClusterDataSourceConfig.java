@@ -20,8 +20,10 @@ import com.alibaba.druid.pool.DruidDataSource;
 public class ClusterDataSourceConfig {
 
     // 精确到 cluster 目录，以便跟其他数据源隔离
-    static final String PACKAGE = "org.spring.springboot.dao.cluster";
-    static final String MAPPER_LOCATION = "classpath:mapper/cluster/*.xml";
+    private static final String PACKAGE = "org.spring.springboot.dao.cluster";
+	private static final String MAPPER_LOCATION = "classpath:mapper/cluster/*.xml";
+    private static final String PACKAGE = "";l
+    private static final String PACKAGE = "";
 
     @Value("${cluster.datasource.url}")
     private String url;
@@ -42,8 +44,11 @@ public class ClusterDataSourceConfig {
         dataSource.setUrl(url);
         dataSource.setUsername(user);
         dataSource.setPassword(password);
-//        dataSource.setInitialSize(initialSize);
-//        dataSource.setMaxActive(arg0);
+        // add for init param
+        dataSource.setInitialSize(1);
+        dataSource.setMaxActive(2);
+        dataSource.setTestWhileIdle(true);
+        dataSource.setValidationQuery("select 1");
         return dataSource;
     }
 

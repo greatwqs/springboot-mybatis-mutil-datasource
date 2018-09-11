@@ -21,8 +21,8 @@ import com.alibaba.druid.pool.DruidDataSource;
 public class MasterDataSourceConfig {
 
 	// 精确到 master 目录，以便跟其他数据源隔离
-	static final String PACKAGE = "org.spring.springboot.dao.master";
-	static final String MAPPER_LOCATION = "classpath:mapper/master/*.xml";
+	private static final String PACKAGE = "org.spring.springboot.dao.master";
+	private static final String MAPPER_LOCATION = "classpath:mapper/master/*.xml";
 
 	@Value("${master.datasource.url}")
 	private String url;
@@ -44,6 +44,11 @@ public class MasterDataSourceConfig {
 		dataSource.setUrl(url);
 		dataSource.setUsername(user);
 		dataSource.setPassword(password);
+		// add for init param
+		dataSource.setInitialSize(1);
+		dataSource.setMaxActive(2);
+		dataSource.setTestWhileIdle(true);
+		dataSource.setValidationQuery("select 1");
 		return dataSource;
 	}
 
