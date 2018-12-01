@@ -6,8 +6,6 @@
     <groupId>springboot</groupId>
     <artifactId>springboot-mybatis-mutil-datasource</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <!-- 以war包的方式部署springboot -->
-    <packaging>war</packaging>
     <name>springboot-mybatis-mutil-datasource :: Spring Boot 实现 Mybatis 多数据源配置</name>
 
     <!-- Spring Boot 启动父依赖 -->
@@ -24,13 +22,6 @@
     </properties>
 
     <dependencies>
-    
-    	<!-- Spring Boot tomcat 依赖 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
 
         <!-- Spring Boot Web 依赖 -->
         <dependency>
