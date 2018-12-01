@@ -7,5 +7,7 @@ springboot + mybatis + mutil-datasource + mysql
 内含数据库脚本.
 
 mvn eclipse:eclipse #初始化工程
+
 mvn dependency:sources #下载依赖Jar包源码
+
 EMail联系方式: greatwqs#163.com
